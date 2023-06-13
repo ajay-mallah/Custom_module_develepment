@@ -1,0 +1,9 @@
+name: 'Hello Module'
+type: module
+description: 'My First module -- Aarambh hai Prachand'
+package: Custom Development
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:block
+  - drupal:node
+  - drupal:views

@@ -1,0 +1,7 @@
+mymodule.greetuser:
+  path: '/greet'
+  defaults: 
+    _controller: 'Drupal\hellomodule\Controller\FrontController::greetUser'
+    _title: 'Greet user'
+  requirements:
+    _permission: 'read permission'

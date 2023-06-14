@@ -68,4 +68,5 @@
 
 # temporarily disabling configuration export directory
 
-config/
+# config/
+All_Readme_files/

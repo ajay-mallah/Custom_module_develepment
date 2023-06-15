@@ -65,7 +65,7 @@
 /web/private/scripts/quicksilver
 
 /web/modules/custom/mymodule
-
+/web/modules/custom/rsvplist
 # temporarily disabling configuration export directory
 
 #config/

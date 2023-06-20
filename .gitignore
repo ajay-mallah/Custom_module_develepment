@@ -66,6 +66,7 @@
 
 /web/modules/custom/mymodule
 /web/modules/custom/rsvplist
+/web/modules/custom/customform
 # temporarily disabling configuration export directory
 
 #config/

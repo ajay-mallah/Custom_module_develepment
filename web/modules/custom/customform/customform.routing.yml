@@ -1,7 +1,0 @@
-customform.simpleform:
-  path: '/simpleform'
-  defaults: 
-    _controller: 'Drupal\customfrom\Form\FirstController::simpleContent'
-    _title: 'Simplicity is the ultimate sophistication'
-  requirements:
-    _permission: 'access content'

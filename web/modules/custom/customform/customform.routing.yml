@@ -1,0 +1,7 @@
+customform.simpleform:
+  path: '/admin/config/development/config-form-demo'
+  defaults: 
+    _form: 'Drupal\customform\Form\BasicConfigForm'
+    _title: 'Config form demo'
+  requirements:
+    _permission: 'access content'

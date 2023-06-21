@@ -1,0 +1,8 @@
+name: 'customform'
+type: module
+description: 'Custom config form for taking user info.'
+package: Custom Form
+core_version_requirement: ^10
+dependencies:
+  - drupal:block
+configure: customform.admin_settings

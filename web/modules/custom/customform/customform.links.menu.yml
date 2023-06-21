@@ -1,0 +1,6 @@
+customform.config_form_menu:
+  title: Demo Config Form
+  description: ''
+  route_name: customform.simpleform
+  parent: system.admin_config_development
+  weight: 0

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for hookdemo module.
+ */
+
+ /**
+  * Implements hook_node_view.
+  */
+function hookdemo_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->getEntityTypeId() == 'node') {
+    $nid = $entity->id();
+    $view_count = 1;
+    // getting Drupal's temporary storage service.
+    $store = \Drupal::service('tempstore.private')->get('hookdemo');
+    
+    if (!$store->get('nodes')) {
+      $nodes = [];
+      $nodes[$nid] = 1;
+      $store->set('nodes', $nodes);
+    }
+    else {
+      $nodes = $store->get('nodes');
+      $view_count = $nodes[$nid] ? ++$nodes[$nid] : 1;
+      $nodes[$nid] = $view_count;
+      $store->set('nodes', $nodes);
+    }
+    // updating build render array.
+    $build['view_count'] = [
+      '#markup' => '<p>' . t('You have viewed this node @total times this session.', [
+        '@total' => $view_count,
+      ]) . '</p>',
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+  }
+}

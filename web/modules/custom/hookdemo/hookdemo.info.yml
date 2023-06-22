@@ -1,0 +1,5 @@
+name: 'hookdemo'
+type: module
+description: 'Exploring how hook works.'
+package: Custom
+core_version_requirement: ^10

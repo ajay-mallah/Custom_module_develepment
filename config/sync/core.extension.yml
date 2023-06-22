@@ -15,6 +15,7 @@ module:
   config_ignore: 0
   contact: 0
   contextual: 0
+  customform: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -23,20 +24,20 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  hellomodule: 0
   help: 0
   history: 0
+  hookdemo: 0
   image: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
-  mymodule: 0
   mysql: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  roleassign: 0
   rsvplist: 0
   search: 0
   shortcut: 0

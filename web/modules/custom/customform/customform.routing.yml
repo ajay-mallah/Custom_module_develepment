@@ -5,3 +5,11 @@ customform.simpleform:
     _title: 'Config form demo'
   requirements:
     _permission: 'access content'
+
+customform.ajaxformdemo:
+  path: '/ajax-form-demo'
+  defaults: 
+    _form: 'Drupal\customform\Form\AjaxForm'
+    _title: 'Ajax form demo'
+  requirements:
+    _permission: 'access content'

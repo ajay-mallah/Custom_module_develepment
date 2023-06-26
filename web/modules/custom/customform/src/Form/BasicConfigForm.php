@@ -7,6 +7,7 @@
 
 namespace Drupal\customform\Form;
 
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -113,6 +114,16 @@ class BasicConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $conn = Database::getConnection();
+
+    $form_value = $form_state->getValues();
+    $form_data['form_fullname'] = $form_value['full_name']; 
+    $form_data['form_phone_number'] = $form_value['phone_number']; 
+    $form_data['form_email'] = $form_value['email']; 
+    $form_data['form_gender'] = $form['gender']['#options'][$form_value['gender']]; 
+
+    $conn->insert('customform_config')->fields($form_data)->execute();
+
     $submitted_name = $form_state->getValue('full_name');
     $this->messenger()->addMessage($this->t("Congrats @user Your Form submitted Successfully", ['@user' => $submitted_name]));
   }

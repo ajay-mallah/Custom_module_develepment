@@ -29,6 +29,7 @@ function customform_schema() {
       'id' => [
         'type' => 'serial',
         'not null' => TRUE,
+        'unsigned' => TRUE,
         'description' => 'Primary key: Unique record id'
       ],
       'status' => [
@@ -64,10 +65,11 @@ function customform_schema() {
         'type' => 'varchar_ascii',
         'not null' => TRUE,
         'default' => '',
-        'description' => 'Email address of the submitter.',
+        'description' => 'Gender of the submitter',
         'length' => 20,
       ],
-    ]
+    ],
+    'primary key' => ['id'],
   ];
 
   return $schema;

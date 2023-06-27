@@ -1,0 +1,5 @@
+name: 'routedemo'
+type: module
+description: 'Custom module to explore Routing'
+package: Custom
+core_version_requirement: ^10

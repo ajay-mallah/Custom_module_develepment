@@ -20,6 +20,7 @@ class FrontController extends ControllerBase {
     return [
       '#type' => 'markup',
       '#markup' => $this->t('Hello @user', ['@user' => $user_name]),
+      '#cache' => ['max-age' => 0]
     ];
   }
 }

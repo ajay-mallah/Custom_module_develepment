@@ -5,4 +5,4 @@ routedemo.example:
     _controller: '\Drupal\routedemo\Controller\RouteDemoController:content'
   requirements:
     _permission: 'access the custom page'
-    _role: 'admin+editor'
+    _role: 'administrator+content_editor'

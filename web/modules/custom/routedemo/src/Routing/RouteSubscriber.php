@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\routedemo;
+namespace Drupal\routedemo\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;

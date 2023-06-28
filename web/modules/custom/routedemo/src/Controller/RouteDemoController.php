@@ -40,4 +40,14 @@ final class RouteDemoController extends ControllerBase {
     $action = \Drupal::currentUser()->hasPermission('access the custom page') ? 'allowed' : 'denied';
     \Drupal::messenger()->addMessage(t("Your access for the current page has been @action", ['@action' => $action]));
   }
+
+  /**
+   * Fetching parameters from the route.
+   */
+  public function dynamicParameter(string $value) {
+    return [
+      '#type' => 'markup',
+      '#markup' => t('@value Fetched from the url', ['@value' => $value]),
+    ];
+  }
 }

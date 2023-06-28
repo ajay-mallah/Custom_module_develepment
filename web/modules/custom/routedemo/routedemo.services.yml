@@ -1,0 +1,6 @@
+services:
+  routedemo.route_subscriber:
+    class: Drupal\routedemo\Routing\RouteSubscriber
+    arguments: []
+    tags:
+      - {name: event_subscriber}

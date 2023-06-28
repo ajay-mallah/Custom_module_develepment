@@ -1,0 +1,16 @@
+routedemo.example:
+  path: '/routedemo/example'
+  defaults:
+    _title: 'Routing demo'
+    _controller: '\Drupal\routedemo\Controller\RouteDemoController:content'
+  requirements:
+    _permission: 'access the custom page'
+    _role: 'administrator+content_editor'
+
+routedemo.dynamic_parameter:
+  path: '/campaign/value/{value}'
+  defaults:
+    _title: 'Fetching Dynamic parameter'
+    _controller: '\Drupal\routedemo\Controller\RouteDemoController:dynamicParameter'
+  requirements:
+    _permission: 'access content'

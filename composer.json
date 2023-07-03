@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-project-message": "^10.0",
         "drupal/core-recommended": "^10.0",
+        "drupal/mail_login": "^2.7",
         "drush/drush": "^12.0"
     },
     "conflict": {

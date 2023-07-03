@@ -8,6 +8,8 @@
 namespace Drupal\customform\Form;
 
 use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\MessageCommand;
 use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormBase;
@@ -25,53 +27,93 @@ class AjaxForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['example_select'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Select element'),
-      '#options' => [
-        '1' => $this->t('One'),
-        '2' => $this->t('Two'),
-        '3' => $this->t('Three'),
-        '4' => $this->t('From New York to Ger-ma-ny!'),
-      ],
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    if (!(is_null($node))) {
+      $nid = $node->id;
+    }
+    else {
+      $nid = 0;
+    }
+    // Full Name render element
+    $form['full_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Full Name'),
+      '#size' => 100,
+      '#description' => $this->t('Full name of the user'),
+      '#required' => TRUE,
+    ];
+    // Phone Number render element
+    $form['phone_number'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Phone number'),
+      '#size' => 13,
+      '#description' => $this->t('Enter country code followed by 10 digit phone number.'),
+      '#required' => TRUE,
+      '#maxlength' => 13,
+      '#suffix' => '<div id="error-phone-number" class="custom-error"></div>',
+    ];
+    // Phone Number render element
+    $form['email'] = [
+      '#type' => 'email',
+      '#title' => $this->t('Email Id'),
+      '#size' => 100,
+      '#required' => TRUE,
+      '#suffix' => '<div id="error-email" class="custom-error"></div>',
+    ];
+    // Radio button element for the gender
+    $form['gender'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Gender'),
+      '#default_value' => 0,
+      '#options' => [0 => 'male', 1 => 'female', 2 => 'other'],
+      '#required' => TRUE,
+    ];
+    // Submit button element.
+    $form['actions'] = [
+      '#type' => 'button',
+      '#value' => $this->t('submit'),
       '#ajax' => [
-        'callback' => '::myAjaxCallback', // don't forget :: when calling a class method.
-        //'callback' => [$this, 'myAjaxCallback'], //alternative notation
-        'disable-refocus' => FALSE, // Or TRUE to prevent re-focusing on the triggering element.
-        'event' => 'change',
-        'wrapper' => 'edit-output', // This element is updated with this AJAX callback.
-        'progress' => [
-          'type' => 'throbber',
-          'message' => $this->t('Verifying entry...'),
-        ],
+        'callback' => '::ajaxValidation'
       ]
     ];
-
-    // Create a textbox that will be updated
-    // when the user selects an item from the select box above.
-    $form['output'] = [
-      '#type' => 'textfield',
-      '#size' => '60',
-      '#disabled' => TRUE,
-      '#value' => 'Hello, Drupal!!1',      
-      '#prefix' => '<div id="edit-output">',
-      '#suffix' => '</div>',
+    // node id.
+    $form['nid'] = [
+      '#type' => 'hidden',
+      '#value' => $nid,
     ];
+    return $form;
+  }
 
-    if ($selectedValue = $form_state->getValue('example_select')) {
-      // Get the text of the selected option.
-      $selectedText = $form['example_select']['#options'][$selectedValue];
-      // Place the text of the selected option in our textfield.
-      $form['output']['#value'] = $selectedText;
+  /**
+   * Validates user input values and throws error.
+   */
+  public function ajaxValidation(array &$form, FormStateInterface $form_state) {
+    // A boolean value which stores form validation state.
+    $valid = TRUE;
+    $response = new AjaxResponse();
+    // Reseting error message.
+    $response->addCommand(new HtmlCommand('.custom-error', ''));
+    // Validating phone number
+    $phone_number = $form_state->getValue('phone_number');
+    if (!preg_match('/[+][9][1]([0-9]+){10}/', $phone_number)) {
+      $response->addCommand(new HtmlCommand('#error-phone-number', 
+        $this->t('Add +91 followed by 10 digit number')));
+      $valid = FALSE;
+    }
+      
+    // Validating email address
+    $email_address = $form_state->getValue('email');
+    if (!preg_match('/^[a-zA-z0-9._-]+@(gmail|outlook|yahoo).com$/', $email_address)) {
+      $response->addCommand(new HtmlCommand('#error-email', $this->t('Enter email in RFC format, 
+        only public domain (like Yahoo, Gmail, Outlook, etc.) and end with .com')));
+      $valid = FALSE;
     }
 
-    // Create the submit button.
-    $form['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Submit'),
-    ];
-
-    return $form;
+    if ($valid) {
+      $response->addCommand(new MessageCommand('Form submitted successfully', NULL));
+    }
+    return $response;
   }
 
   /**
@@ -85,31 +127,7 @@ class AjaxForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Display result.
-    foreach ($form_state->getValues() as $key => $value) {
-      \Drupal::messenger()->addStatus($key . ': ' . $value);
-    }
+    // Nothing to do, Form is handled by ajaxRequest.
   }
 
-  // Get the value from example select field and fill
-  // the textbox with the selected text.
-  public function myAjaxCallback(array &$form, FormStateInterface $form_state) {
-    // $selectedText = 'nothing selected!';
-
-    // if ($selectedValue = $form_state->getValue('example_select')) {
-    //   $selectedText = $form['example_select']['#options'][$selectedValue];
-    // }
-
-    // // Attach the javascript library to the dialog box command.
-    // $dialogText['#attached']['library'][] = 'core/drupal.dialog.ajax';
-    // // Prepare the text for the dialog box command
-    // $dialogText['#markup'] = "You selected: $selectedText";
-
-    // $response = new AjaxResponse();
-    // $response->addCommand(new ReplaceCommand('#edit-output', $form['output']));
-    // $response->addCommand(new OpenModalDialogCommand('My title', $dialogText, ['width' => 300]));
-
-    // return $response;
-    return $form['output'];
-  }
 }

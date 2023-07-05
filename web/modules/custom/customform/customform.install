@@ -1,0 +1,76 @@
+<?php declare(strict_types = 1);
+
+/**
+ * @file
+ * Install, update and uninstall functions for the customform module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function customform_install(): void {
+  \Drupal::messenger()->addStatus(t('Module customform has been installed.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function customform_uninstall(): void {
+  \Drupal::messenger()->addStatus(t('Module customform has been uninstalled.'));
+}
+
+/**
+ * Implements hook_schema().
+ */
+function customform_schema() {
+  $schema['customform_config'] = [
+    'description' => 'Stored field key and value for custom form.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Primary key: Unique record id'
+      ],
+      'status' => [
+        'description' => 'Boolean indicating whether this record is active or not.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'size' => 'tiny',
+        'default' => 0,
+      ],
+      'form_fullname' => [
+        'type' => 'varchar_ascii',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Full name of the submitter.',
+        'length' => 50,
+      ],
+      'form_phone_number' => [
+        'type' => 'varchar_ascii',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Phone number of the submitter.',
+        'length' => 13,
+      ],
+      'form_email' => [
+        'type' => 'varchar_ascii',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Email address of the submitter.',
+        'length' => 100,
+      ],
+      'form_gender' => [
+        'type' => 'varchar_ascii',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Gender of the submitter',
+        'length' => 20,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

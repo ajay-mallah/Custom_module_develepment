@@ -13,3 +13,12 @@ customform.ajaxformdemo:
     _title: 'Ajax form demo'
   requirements:
     _permission: 'access content'
+
+customform.otll:
+  path: '/otll'
+  defaults: 
+    _form: 'Drupal\customform\Form\OTLLForm'
+    _title: 'One Time Login Link'
+  requirements:
+    _permission: 'access content'
+    _role: 'manager'

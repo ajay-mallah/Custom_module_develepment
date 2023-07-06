@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\Core\Routing\TrustedRedirectResponse;
+use Drupal\user\UserInterface;
+
+/**
+ * @implements hook_user_login.
+ */
+function customblock_user_login(UserInterface $account) {
+  // using custom user_redirect service to redirect user to the 
+  \Drupal::service('customblock.user_redirect')->setLoginRedirection('/custom-welcome-page', 'administrator');
+}

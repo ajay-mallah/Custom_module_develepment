@@ -1,0 +1,7 @@
+name: 'customblock'
+type: module
+description: 'Custom Block'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:block

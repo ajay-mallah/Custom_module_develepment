@@ -1,7 +1,0 @@
-block.settings.customblock_custom_welcome_block:
-  type: block_settings
-  label: 'custom welcome block block'
-  mapping:
-    example:
-      type: string
-      label: Example

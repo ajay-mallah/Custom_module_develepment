@@ -1,4 +1,0 @@
-services:
-  customblock.user_redirect:
-    class: 'Drupal\customblock\UserRedirect'
-    arguments: ['@request_stack', '@current_user']

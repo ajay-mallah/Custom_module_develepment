@@ -1,0 +1,7 @@
+customblock.artifacts_form:
+  path: /artifacts-form
+  defaults: 
+    _form: 'Drupal\customblock\Form\ArtifactsConfigForm'
+    _title: 'Custom form'
+  requirements:
+    _permission: 'access content'

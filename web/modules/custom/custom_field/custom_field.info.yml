@@ -1,0 +1,5 @@
+name: 'custom_field'
+type: module
+description: 'Custom field module'
+package: Custom
+core_version_requirement: ^10

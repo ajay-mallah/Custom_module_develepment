@@ -15,6 +15,8 @@ module:
   config_ignore: 0
   contact: 0
   contextual: 0
+  custom_field: 0
+  customblock: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
@@ -23,20 +25,20 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  hellomodule: 0
   help: 0
   history: 0
   image: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
-  mymodule: 0
   mysql: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  roleassign: 0
+  routedemo: 0
   rsvplist: 0
   search: 0
   shortcut: 0
@@ -53,4 +55,6 @@ module:
 theme:
   olivero: 0
   claro: 0
+  stable9: 0
+  bootstrap5: 0
 profile: standard

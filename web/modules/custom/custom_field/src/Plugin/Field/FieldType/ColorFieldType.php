@@ -14,8 +14,8 @@ use Drupal\Core\TypedData\DataDefinition;
  *   id = "custom_color_field",
  *   label = @Translation("Custom color field"),
  *   category = @Translation("General"),
- *   default_widget = "string_textfield",
- *   default_formatter = "string",
+ *   default_widget = "custom_field_rgb",
+ *   default_formatter = "custom_field_text",
  * )
  */
 final class ColorFieldType extends FieldItemBase {

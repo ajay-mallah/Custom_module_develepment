@@ -1,0 +1,20 @@
+uuid: 54216417-f655-4535-ac60-d93a56bf4bcb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: WElLY75SVcByesHM9VO-o0fR5WNgGtjCSQRnFzBQqHA
+id: node.movie_price
+field_name: movie_price
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

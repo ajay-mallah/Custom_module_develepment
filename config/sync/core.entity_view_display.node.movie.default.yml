@@ -1,0 +1,56 @@
+uuid: ff20a150-2740-4ee6-b230-4eda1d6007d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.movie.body
+    - field.field.node.movie.movie_image
+    - field.field.node.movie.movie_price
+    - image.style.medium
+    - node.type.movie
+  module:
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: 5gZB-GhrxW7u46-XPS3NPY__WxfCbbDBRTx6zZcdWZQ
+id: node.movie.default
+targetEntityType: node
+bundle: movie
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  movie_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  movie_price:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

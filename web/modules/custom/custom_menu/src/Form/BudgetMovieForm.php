@@ -34,7 +34,7 @@ class BudgetMovieForm extends ConfigFormBase
 
     $form['form']['budget_amount'] = [
       '#type' => 'number',
-      '#placeholder' => $this->t('Budget Amount'),
+      '#title' => $this->t('Budget friendly movie price value in rupees'),
       '#default_value' => $config->get('budget_amount') ?? 0,
       '#min' => 0,
     ];

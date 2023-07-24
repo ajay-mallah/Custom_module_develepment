@@ -1,5 +1,5 @@
 custom_menu.budget_amount_form:
-  path: '/movie/budget_form'
+  path: '/admin/reports/movie_budget_form'
   defaults:
     _form: 'Drupal\custom_menu\Form\BudgetMovieForm'
     _title: 'Budget Movie Amount Form'

@@ -10,8 +10,10 @@ module:
   ckeditor5: 0
   comment: 0
   config: 0
+  config_entity_movie: 0
   contact: 0
   contextual: 0
+  custom_menu: 0
   datetime: 0
   dblog: 0
   devel: 0

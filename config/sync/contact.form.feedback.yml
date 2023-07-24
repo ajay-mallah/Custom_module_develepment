@@ -1,4 +1,4 @@
-uuid: bb935b32-b8aa-4947-b49c-f8ad2eeb901d
+uuid: 0e06d0cb-7b67-4f1c-aa93-d685024aaf2b
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - ajay.mallah@innoraft.com
+  - admin@example.com
 reply: ''
 weight: 0
 message: 'Your message has been sent.'

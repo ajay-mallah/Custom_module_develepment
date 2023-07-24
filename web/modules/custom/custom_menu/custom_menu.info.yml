@@ -1,0 +1,5 @@
+name: 'custom_menu'
+type: module
+description: 'Custom Menu'
+package: Custom
+core_version_requirement: ^10

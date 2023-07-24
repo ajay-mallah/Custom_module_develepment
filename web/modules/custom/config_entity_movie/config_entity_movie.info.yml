@@ -1,0 +1,5 @@
+name: 'config_entity_movie'
+type: module
+description: 'Config movie entity'
+package: Custom
+core_version_requirement: ^10

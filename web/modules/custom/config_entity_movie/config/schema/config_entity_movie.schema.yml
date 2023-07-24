@@ -1,0 +1,16 @@
+config_entity_movie.movie.*:
+  type: config_entity
+  label: movie
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    movie_name: 
+      type: string
+    winning_year: 
+      type: string

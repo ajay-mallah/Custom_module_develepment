@@ -1,5 +1,6 @@
 custom_menu.report.edit_amount:
   title: 'movie price'
   route_name: custom_menu.budget_amount_form
-  parent: system.admin_reports
+  parent: system.admin
   description: 'Set current price for Budget friendly movie.'
+  weight: 8

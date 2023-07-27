@@ -1,0 +1,6 @@
+services:
+  custom_menu.custom_node_view:
+    class: 'Drupal\custom_menu\EventSubscriber\CustomNodeViewEvent'
+    arguments: ['@config.factory']
+    tags:
+      - { name: event_subscriber }

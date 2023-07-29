@@ -7,6 +7,6 @@ services:
   
   cache_context.budget_compare:
     class: Drupal\custom_menu\CacheContext\BudgetComparisonCacheContext
-    arguments: ['@current_route_match', '@config.factory']
+    arguments: ['@config.factory']
     tags:
       - {name: cache.context}

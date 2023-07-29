@@ -60,6 +60,9 @@ class CustomNodeViewEvent implements EventSubscriberInterface {
         '#template' => '<div class="py-2 text-primary">{{ response }}</div>',
         '#context' => [
           'response' => $node_response,
+        ],
+        '#cache' => [
+          'contexts' => ['budget_compare'],
         ]  
       ];
       // Resetting controller result.
@@ -77,7 +80,6 @@ class CustomNodeViewEvent implements EventSubscriberInterface {
   function comparePrice(float $price): string {
     $this->config = $this->config->getEditable('budget_movie_amount.settings');
     $budget_price = (float)$this->config->get('budget_amount');
-
     if ($budget_price > $price) {
       return "The movie is under budget";
     }

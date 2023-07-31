@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_uninstall.
+ */
+function movie_entity_uninstall() {
+  // Deleting movie nodes.
+  $storage_handler = \Drupal::entityTypeManager()->getStorage('node'); 
+  $movie_nodes = $storage_handler->loadByProperties(['type' => 'movie']);
+  $storage_handler->delete($movie_nodes);
+  // Deletes movie content type.
+  \Drupal::entityTypeManager()->getStorage('node_type')->load('movie')->delete();
+}

@@ -1,0 +1,17 @@
+uuid: 5ef575b9-829c-4f63-bf6a-89ff8287d63d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Events
+type: events
+description: 'A content type which stores event details.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

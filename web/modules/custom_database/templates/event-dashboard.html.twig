@@ -1,0 +1,77 @@
+<div class="container py-3">
+  <div class="dashboard">
+  {% if event_type %}
+    <h4 class="heading">Event count table based on Event type</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">event type</th>
+          <th scope="col">count</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% set count = 1 %}
+          {% for key, value in event_type %}
+          <tr>
+            <th scope="row">{{ count }}</th>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+            {% set count = count + 1 %}
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  </div>
+  <div class="dashboard">
+  {% if event_type %}
+    <h4 class="heading">Event count table based on year</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">year</th>
+          <th scope="col">count</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% set count = 1 %}
+          {% for key, value in year %}
+          <tr>
+            <th scope="row">{{ count }}</th>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+            {% set count = count + 1 %}
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  </div>
+  <div class="dashboard">
+  {% if event_type %}
+    <h4 class="heading">Event count table based on quarter</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">quarter</th>
+          <th scope="col">count</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% set count = 1 %}
+          {% for key, value in quarter %}
+          <tr>
+            <th scope="row">{{ count }}</th>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+            {% set count = count + 1 %}
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+  </div>
+</div>

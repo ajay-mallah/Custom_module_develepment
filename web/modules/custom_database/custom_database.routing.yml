@@ -1,0 +1,7 @@
+custom_database.event_dashboard:
+  path: /event/dashboard
+  defaults:
+    _controller: 'Drupal\custom_database\Controller\EventDashboardController::getEventSummary'
+    _title: Event Dashboard
+  requirements:
+    _permission: 'access content'

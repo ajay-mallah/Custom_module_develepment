@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * implements hook_theme
+ */
+function custom_database_theme($existing, $type, $theme, $path)  {
+  return [
+    'event_dashboard' => [
+      'variables' => [
+        'event_type' => NULL,
+        'year' => NULL,
+        'quarter' => NULL,
+      ]
+    ]
+  ];
+}

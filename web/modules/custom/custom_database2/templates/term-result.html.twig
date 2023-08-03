@@ -1,0 +1,13 @@
+<div class="container py-3">
+  <div class="term-result">
+    <p>term id: {{ id ?? 'undefined' }}</p>
+    <p>term id: {{ uuid ?? 'undefined' }}</p>
+    {% if nodes %}
+      <ul>
+        {% for node in nodes %}
+          <li><a href={{node.ulr ?? "#"}}>{{node.title}}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>

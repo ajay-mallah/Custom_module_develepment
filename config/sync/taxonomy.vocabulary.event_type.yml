@@ -1,0 +1,8 @@
+uuid: 1cf0d680-b4a6-4f71-aa85-09a09e045f62
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event type'
+vid: event_type
+description: 'taxanomy terms for the different event types'
+weight: 0

@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * implements hook_theme
+ */
+function custom_database2_theme($existing, $type, $theme, $path)  {
+  return [
+    'term_result' => [
+      'variables' => [
+        'id' => NULL,
+        'uuid' => NULL,
+        'nodes' => NULL,
+      ]
+    ]
+  ];
+}

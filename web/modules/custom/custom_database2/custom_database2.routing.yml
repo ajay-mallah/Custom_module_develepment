@@ -1,0 +1,14 @@
+custom_database2.autocomplete_taxonomy:
+  path: '/autocomplete/taxonomy_search'
+  defaults:
+    _controller: 'Drupal\custom_database2\Controller\JsonApiTaxonomyController::handleAutocomplete'
+    _title: Event Dashboard
+  requirements:
+    _permission: 'access content'
+
+custom_database2.taxonomy_form:
+  path: '/taxonomy-form'
+  defaults: 
+    _form: 'Drupal\custom_database2\Form\MyAutocompleteForm'
+  requirements:
+    _permission: 'access content'

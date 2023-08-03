@@ -1,0 +1,5 @@
+name: 'custom_database2'
+type: module
+description: 'Custom database autofill term'
+package: Custom
+core_version_requirement: ^10

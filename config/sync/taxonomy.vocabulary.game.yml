@@ -1,0 +1,8 @@
+uuid: 8d2a0023-3804-4fb6-b9e2-66836f9aa552
+langcode: en
+status: true
+dependencies: {  }
+name: Game
+vid: game
+description: 'taxanomy terms for the different game type'
+weight: 0

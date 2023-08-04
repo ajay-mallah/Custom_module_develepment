@@ -1,5 +1,6 @@
-group: ''
-label_1st: ''
-value_1st: ''
-label_2nd: ''
-value_2nd: ''
+artifacts:
+  group: ''
+  label_1st: ''
+  value_1st: ''
+  label_2nd: ''
+  value_2nd: ''

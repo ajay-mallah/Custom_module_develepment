@@ -20,6 +20,24 @@ function customblock_theme($existing, $type, $theme, $path)  {
       'variables' => [
         'artifacts' => NULL,
       ]
-    ]
+    ],
+    'block__customblock_artifacts' => [
+      'variables' => [
+        'artifacts' => NULL,
+      ]
+    ],
   ];
+}
+
+/**
+ * Implements theme_suggestions_hook.
+ */
+function customblock_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Checking for artifacts block.
+  // Adding template suggestions for the artifacts block.
+  if ($variables['elements'] && $variables['elements']['#plugin_id'] == "customblock_artifacts" ) {
+    $block_plugin_id = $variables['elements']['#plugin_id'];
+    $suggestions[] = 'block__' . $block_plugin_id;
+    $suggestions[] = 'artifacts_theme';
+  }
 }

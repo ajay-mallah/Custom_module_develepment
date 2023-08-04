@@ -101,7 +101,6 @@ class ArtifactsConfigForm extends ConfigFormBase {
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('submit'),
-      '#submit' => ['::redirectResult']
     ];
     
     return $form;
@@ -174,6 +173,8 @@ class ArtifactsConfigForm extends ConfigFormBase {
     // Saving data into the config file.
     $config->set('artifacts', $data);
     $config->save();
+
+    $this->redirectResult();
   }
 
   /**

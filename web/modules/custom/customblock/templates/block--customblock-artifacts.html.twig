@@ -1,0 +1,17 @@
+<div class="container">
+  <p>custom templates suggesioner</p>
+  <h1 class="heading text-uppercase text-align-center">flagship programmes</h1>
+  <div class="row my-5">
+    {% if artifacts %}
+      {% for item in artifacts %}
+        <div class="col d-flex align-items-center flex-column ">
+          <h2 class="title text-uppercase">{{item.group ?? ''}}</h2>
+          <p>{{item.label_1st ?? ''}}</p>
+          <h4>{{item.value_1st ?? ''}}</h4>
+          <p>{{item.label_2nd ?? ''}}</p>
+          <h4>{{item.value_2nd ?? ''}}</h4>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
